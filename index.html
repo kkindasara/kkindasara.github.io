@@ -7,36 +7,40 @@
 <meta name="description" content="Sara Orsi – Computer Engineering student at Politecnico di Milano">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,0..100,0..1;1,9..144,400..700,0..100,0..1&family=Plus+Jakarta+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root { padding-block: env(safe-area-inset-top, 0px) env(safe-area-inset-bottom, 0px); }
 body { margin: 0; }
 img { max-width: 100%; }
-/* Layout: a single centred column read like a component datasheet — Bodoni name plate, spec strip, then project "parts" with key/value specs. */
+/* Layout: a single centred column read like a component datasheet — Fraunces name plate, spec strip, then project "parts" with key/value specs. */
 :root {
-  --paper: #F5F6F8;
+  --paper: #F7F5FA;
   --surface: #FFFFFF;
-  --ink: #141A2E;
-  --muted: #5A6178;
-  --line: #DADDE6;
-  --accent: #2940C8;
-  --accent-soft: #E6E9FA;
-  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --ink: #1C1830;
+  --muted: #645E7A;
+  --line: #E0DBEA;
+  --accent: #A77BF0;
+  --accent-ink: #7A4CC9;
+  --accent-soft: #EFE6FC;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0E111C; --surface: #161A29; --ink: #E8EAF2; --muted: #9AA1B8;
-    --line: #2A3046; --accent: #8E9DFF; --accent-soft: #1F2647; color-scheme: dark;
+    --paper: #110E1A; --surface: #1A1626; --ink: #ECE8F4; --muted: #A49DBA;
+    --line: #2F2945; --accent: #BE9BFF; --accent-ink: #C9ABFF; --accent-soft: #2A2142; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0E111C; --surface: #161A29; --ink: #E8EAF2; --muted: #9AA1B8;
-  --line: #2A3046; --accent: #8E9DFF; --accent-soft: #1F2647; color-scheme: dark;
+  --paper: #110E1A; --surface: #1A1626; --ink: #ECE8F4; --muted: #A49DBA;
+  --line: #2F2945; --accent: #BE9BFF; --accent-ink: #C9ABFF; --accent-soft: #2A2142; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
+/* soft display */
+.name, .sec-head h2, .project h3, .spec b, .about p, .contact h2, .grade, .mono-mark { font-variation-settings: "SOFT" 100, "WONK" 0; }
+.name em { font-variation-settings: "SOFT" 100, "WONK" 1; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 body {
@@ -52,8 +56,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-a { color: var(--accent); text-underline-offset: 3px; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+a { color: var(--accent-ink); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; border-radius: 2px; }
 
 /* Top bar */
 .top {
@@ -71,7 +75,7 @@ a { color: var(--accent); text-underline-offset: 3px; }
 
 /* Hero */
 .hero { padding-block: 72px 48px; display: grid; gap: 28px; }
-.eyebrow { font: 500 .75rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.eyebrow { font: 500 .75rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); }
 .name {
   font-family: var(--display); font-weight: 500; font-size: clamp(3.4rem, 11vw, 7rem);
   line-height: .95; letter-spacing: -.01em; margin: 0; text-wrap: balance;
@@ -88,7 +92,7 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .btn-ghost { background: transparent; color: var(--ink); }
 .btn:hover { transform: translateY(-1px); }
 .btn { transition: transform .15s ease; }
-.copied { font: .8rem var(--mono); color: var(--accent); min-width: 6ch; }
+.copied { font: .8rem var(--mono); color: var(--accent-ink); min-width: 6ch; }
 
 /* Spec strip */
 .specs {
@@ -118,7 +122,7 @@ section.block { padding-block: 64px 8px; scroll-margin-top: 64px; }
   display: grid; grid-template-columns: 240px 1fr; overflow: hidden;
 }
 .project aside { padding: 24px; border-right: 1px solid var(--line); display: grid; gap: 14px; align-content: start; background: color-mix(in srgb, var(--accent-soft) 45%, var(--surface)); }
-.part-no { font: 500 .72rem var(--mono); letter-spacing: .1em; color: var(--accent); text-transform: uppercase; }
+.part-no { font: 500 .72rem var(--mono); letter-spacing: .1em; color: var(--accent-ink); text-transform: uppercase; }
 .kv { display: grid; gap: 10px; margin: 0; }
 .kv div { display: grid; gap: 1px; }
 .kv dt { font: 500 .68rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
@@ -164,7 +168,7 @@ section.block { padding-block: 64px 8px; scroll-margin-top: 64px; }
 .edu-item.now::before { background: var(--accent); }
 .edu-item h4 { margin: 0; font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
 .edu-item p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
-.status { display: inline-block; font: 500 .68rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.status { display: inline-block; font: 500 .68rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 4px; }
 
 .langs { display: grid; gap: 16px; }
 .lang-row { display: grid; grid-template-columns: 92px 1fr; gap: 6px 16px; align-items: center; }
